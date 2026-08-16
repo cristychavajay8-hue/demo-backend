@@ -7,7 +7,6 @@ import com.example.demo.service.EmailService;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
 @CrossOrigin(origins = "*")
 public class ContactoController {
 
