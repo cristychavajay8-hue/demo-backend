@@ -1,8 +1,9 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.demo.service.EmailService;
 import java.util.Map;
 
 @RestController
@@ -11,13 +12,12 @@ import java.util.Map;
 public class ContactoController {
 
     @Autowired
-    private com.example.demo.service.EmailService emailService;
+    private EmailService emailService;
 
-@PostMapping("/contacto")
+    @PostMapping("/contacto")
     public ResponseEntity<String> recibirContacto(@RequestBody Map<String, String> datos) {
-        System.out.println("Formulario recibido con éxito.");}
-
+       
         emailService.enviarCorreoContacto(datos);
-
-        return ResponseEntity.ok("¡Mensaje recibido correctamente en Spring Boot!");
+        return ResponseEntity.ok("¡Mensaje recibido correctamente!");
     }
+}
